@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+.container{
+    max-width: 1050px;
+    margin:0 auto;
+    text-align: center;
+}
+.thumbnail{
+    object-fit: cover;
+    object-position: center;
+    height: 250px;
+    width: 220px;
+}
+.title{
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    margin-top:25px;
+}
+.starcontainer{
+    margin-top:10px;
+}
+.time{
+    margin-top:8px;
+    font-size: 0.9em;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+.price{
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    font-size:1.1em;
+    position: absolute;
+    bottom:20px;
+    left:20px;
+}
+.star{
+    width:20px;
+    padding:3px;
+}
+.box{
+    width:220px;
+    height:445px;
+    padding:20px;
+    transition: box-shadow .3s;
+    position: relative;
+    display: table-cell;
+    text-align: left;
+}
+.box:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+.number{
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left:20px;
+    text-align: left;
+}
+.pagination{
+    text-align: center;
+    width:100%;
+}
+.page-btn{
+    width:20px;
+    height:20px;
+    font-weight: 400;
+    font-size:0.8em;
+    font-family: 'Roboto', sans-serif;
+    line-height: 20px;
+    text-align: center;
+    padding:5px;
+    background-color:#fae1e2;
+    display: inline-block;
+    
+}
+.page-btn.selected{
+    background-color:#dd534c;
+}
+.page-btn.selected{
+    background-color:#dd534c;
+}
+.page-btn.next{
+    background-color: #d0d0d0;
+    color:white;
+}

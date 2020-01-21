@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>aCommerce Homework Challenges</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="number">
+                Item 1 - 12 of 12
+            </div>
+        </div>
+        <div class="pagination">
+            <div class="page-btn selected">
+                1
+            </div>
+            <div class="page-btn">
+                2
+            </div>
+            <div class="page-btn next">
+                >
+            </div>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $.getJSON("list.json", function (data) {
+                $.each(data, function (key, value) {
+                    var html = '<div class="box">';
+                    html += '<img class="thumbnail" src="'+value.image_url+'">';
+                    html += '<div class="title">';
+                    html += value.title;
+                    html += '</div>';
+                    html += '<div class="time">';
+                    html += timeSince(value.created_at);
+                    html += '</div>';
+                    html += '<div class="starcontainer">';
+                    for (var i = 1; i <= value.vote; i++) {
+                        html += '<img class="star" src="star.png">';
+                    }
+                    html += '</div>';
+                    html += '<div class="price">';
+                    html += '฿' + value.price.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    html += '</div>';
+                    html += '</div>';
+                    if ((key + 1) % 4 == 0) {
+                        html += '<br>';
+                    }
+                    $(".container").append(html);
+                });
+            });
+
+
+            function timeSince(date) {
+                var t = date.split(/[- :]/);
+                date = new Date(Date.UTC(t[0], t[1] - 1, t[2], t[3], t[4], t[5]));
+                var seconds = Math.floor((new Date() - date) / 1000);
+                var weeksecond = 7 * 24 * 60 * 60;
+                var week = Math.floor(seconds / weeksecond);
+                if (week > 1) {
+                    return week + " weeks ago";
+                } else {
+                    return week + " week ago";
+                }
+
+            }
+        </script>
+    </body>
+</html>
